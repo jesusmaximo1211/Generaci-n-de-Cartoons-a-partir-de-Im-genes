@@ -1,0 +1,11 @@
+# Ejecutables binarios
+bin/
+*.exe
+
+# Imagenes temporales generadas
+*.ppm
+salida_*.ppm
+salida_*.png
+test_*.ppm
+test_*.png
+dummy.ppm
