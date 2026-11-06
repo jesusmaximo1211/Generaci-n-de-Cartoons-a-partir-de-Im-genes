@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
            elapsed_time, ((double)total_pixels / 1e6) / elapsed_time);
 
     // Guardar imagen resultante
-    if (output_path && strlen(output_path) > 0) {
+    if (output_path && strlen(output_path) > 0 && strcmp(output_path, "none") != 0) {
         if (ppm_write(output_path, output_img)) {
             printf("[SEQ] Resultado guardado exitosamente en: %s\n", output_path);
         } else {

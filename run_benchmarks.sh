@@ -89,7 +89,7 @@ EOF
             # --- A. SECUENCIAL ---
             SUM_TIME=0
             for r in $(seq 1 $REPETICIONES); do
-                OUT=$(./bin/cartoon_seq --synthetic "" "$F" "$K" 70 "$DIM" "$DIM")
+                OUT=$(./bin/cartoon_seq --synthetic "none" "$F" "$K" 70 "$DIM" "$DIM")
                 T=$(parse_time "$OUT")
                 SUM_TIME=$(awk "BEGIN {printf \"%.6f\", $SUM_TIME + $T}")
             done
@@ -100,7 +100,7 @@ EOF
             for TH in "${OMP_THREADS_LIST[@]}"; do
                 SUM_TIME=0
                 for r in $(seq 1 $REPETICIONES); do
-                    OUT=$(./bin/cartoon_omp --synthetic "" "$TH" "$F" "$K" 70 "$DIM" "$DIM")
+                    OUT=$(./bin/cartoon_omp --synthetic "none" "$TH" "$F" "$K" 70 "$DIM" "$DIM")
                     T=$(parse_time "$OUT")
                     SUM_TIME=$(awk "BEGIN {printf \"%.6f\", $SUM_TIME + $T}")
                 done
@@ -114,7 +114,7 @@ EOF
             for NP in "${MPI_PROCS_LIST[@]}"; do
                 SUM_TIME=0
                 for r in $(seq 1 $REPETICIONES); do
-                    OUT=$(mpiexec -n "$NP" ./bin/cartoon_mpi --synthetic "" "$F" "$K" 70 "$DIM" "$DIM")
+                    OUT=$(mpiexec -n "$NP" ./bin/cartoon_mpi --synthetic "none" "$F" "$K" 70 "$DIM" "$DIM")
                     T=$(parse_time "$OUT")
                     SUM_TIME=$(awk "BEGIN {printf \"%.6f\", $SUM_TIME + $T}")
                 done
@@ -130,7 +130,7 @@ EOF
             TH_HYB=2
             TOTAL_CORES=$((NP_HYB * TH_HYB))
             for r in $(seq 1 $REPETICIONES); do
-                OUT=$(mpiexec -n "$NP_HYB" ./bin/cartoon_hybrid --synthetic "" "$TH_HYB" "$F" "$K" 70 "$DIM" "$DIM")
+                OUT=$(mpiexec -n "$NP_HYB" ./bin/cartoon_hybrid --synthetic "none" "$TH_HYB" "$F" "$K" 70 "$DIM" "$DIM")
                 T=$(parse_time "$OUT")
                 SUM_TIME=$(awk "BEGIN {printf \"%.6f\", $SUM_TIME + $T}")
             done

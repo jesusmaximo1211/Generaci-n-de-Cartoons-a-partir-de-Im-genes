@@ -202,7 +202,7 @@ int main(int argc, char *argv[]) {
     printf("[OMP] Tiempo total de computo: %.6f segundos (%.2f MPixels/s)\n",
            elapsed_time, ((double)total_pixels / 1e6) / elapsed_time);
 
-    if (output_path && strlen(output_path) > 0) {
+    if (output_path && strlen(output_path) > 0 && strcmp(output_path, "none") != 0) {
         ppm_write(output_path, output_img);
         printf("[OMP] Resultado guardado en: %s\n", output_path);
     }

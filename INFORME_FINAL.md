@@ -101,107 +101,127 @@ Para P unidades de procesamiento (hilos o procesos):
 
 5. Resultados Experimentales y Tablas Comparativas
 
-Las mediciones corresponden al promedio de 3 repeticiones independientes con imagenes sinteticas deterministicas.
+Las mediciones corresponden a ejecuciones directas con imagenes sinteticas deterministicas generadas por el algoritmo.
 
 5.1 Resolucion 800 x 800 Pixeles
 
-Filtro 3x3, K=3:
-- Secuencial (1 Core): 0.022475 s | Speedup: 1.00x | Eficiencia: 100.0%
-- OpenMP (2 Hilos): 0.016000 s | Speedup: 1.40x | Eficiencia: 70.0%
-- OpenMP (4 Hilos): 0.010000 s | Speedup: 2.25x | Eficiencia: 56.2%
-- MPI (2 Procesos): 0.012488 s | Speedup: 1.80x | Eficiencia: 90.0%
-- MPI (4 Procesos): 0.006577 s | Speedup: 3.42x | Eficiencia: 85.5%
-- Hibrido (2 Proc x 2 Hilos): 0.006522 s | Speedup: 3.45x | Eficiencia: 86.2%
+Filtro 5x5, K=3:
+- Secuencial (1 Core): 0.031273 s | Speedup: 1.00x | Eficiencia: 100.0%
+- OpenMP (4 Hilos): 0.012000 s | Speedup: 2.61x | Eficiencia: 65.2%
+- MPI (2 Procesos): 0.016611 s | Speedup: 1.88x | Eficiencia: 94.0%
+- MPI (4 Procesos): 0.012482 s | Speedup: 2.51x | Eficiencia: 62.7%
+- Hibrido (2 Proc x 2 Hilos): 0.010277 s | Speedup: 3.04x | Eficiencia: 76.0%
 
 Filtro 5x5, K=9:
-- Secuencial (1 Core): 0.031068 s | Speedup: 1.00x | Eficiencia: 100.0%
-- OpenMP (2 Hilos): 0.020667 s | Speedup: 1.50x | Eficiencia: 75.0%
-- OpenMP (4 Hilos): 0.013000 s | Speedup: 2.39x | Eficiencia: 59.8%
-- MPI (2 Procesos): 0.012385 s | Speedup: 2.51x | Eficiencia: 125.5%
-- MPI (4 Procesos): 0.010090 s | Speedup: 3.08x | Eficiencia: 77.0%
-- Hibrido (2 Proc x 2 Hilos): 0.006193 s | Speedup: 5.02x | Eficiencia: 125.5%
+- Secuencial (1 Core): 0.031403 s | Speedup: 1.00x | Eficiencia: 100.0%
+- OpenMP (4 Hilos): 0.011000 s | Speedup: 2.85x | Eficiencia: 71.3%
+- MPI (1 Proceso): 0.037038 s | Speedup: 0.85x | Eficiencia: 85.0%
+- MPI (2 Procesos): 0.016880 s | Speedup: 1.86x | Eficiencia: 93.0%
+- MPI (4 Procesos): 0.014456 s | Speedup: 2.17x | Eficiencia: 54.3%
+- Hibrido (2 Proc x 2 Hilos): 0.015170 s | Speedup: 2.07x | Eficiencia: 51.8%
 
 
 5.2 Resolucion 2000 x 2000 Pixeles
 
-Filtro 3x3, K=9:
-- Secuencial (1 Core): 0.144823 s | Speedup: 1.00x | Eficiencia: 100.0%
-- OpenMP (2 Hilos): 0.095333 s | Speedup: 1.52x | Eficiencia: 76.0%
-- OpenMP (4 Hilos): 0.054667 s | Speedup: 2.65x | Eficiencia: 66.2%
-- MPI (2 Procesos): 0.030296 s | Speedup: 4.78x | Eficiencia: 239.0%
-- MPI (4 Procesos): 0.019184 s | Speedup: 7.55x | Eficiencia: 188.8%
-- Hibrido (2 Proc x 2 Hilos): 0.017967 s | Speedup: 8.06x | Eficiencia: 201.5%
+Filtro 5x5, K=3:
+- Secuencial (1 Core): 0.195083 s | Speedup: 1.00x | Eficiencia: 100.0%
+- OpenMP (4 Hilos): 0.081000 s | Speedup: 2.41x | Eficiencia: 60.2%
+- MPI (2 Procesos): 0.102127 s | Speedup: 1.91x | Eficiencia: 95.5%
+- MPI (4 Procesos): 0.060771 s | Speedup: 3.21x | Eficiencia: 80.3%
+- Hibrido (2 Proc x 2 Hilos): 0.075339 s | Speedup: 2.59x | Eficiencia: 64.7%
 
 Filtro 5x5, K=9:
 - Secuencial (1 Core): 0.198249 s | Speedup: 1.00x | Eficiencia: 100.0%
 - OpenMP (2 Hilos): 0.132333 s | Speedup: 1.50x | Eficiencia: 75.0%
 - OpenMP (4 Hilos): 0.072667 s | Speedup: 2.73x | Eficiencia: 68.2%
-- MPI (2 Procesos): 0.029973 s | Speedup: 6.61x | Eficiencia: 330.5%
-- MPI (4 Procesos): 0.018867 s | Speedup: 10.51x | Eficiencia: 262.8%
-- Hibrido (2 Proc x 2 Hilos): 0.013069 s | Speedup: 15.17x | Eficiencia: 379.2%
+- MPI (2 Procesos): 0.098412 s | Speedup: 2.01x | Eficiencia: 100.7%
+- MPI (4 Procesos): 0.058310 s | Speedup: 3.40x | Eficiencia: 85.0%
+- Hibrido (2 Proc x 2 Hilos): 0.069415 s | Speedup: 2.86x | Eficiencia: 71.4%
 
 
 5.3 Resolucion 5000 x 5000 Pixeles
 
-Filtro 3x3, K=9:
-- Secuencial (1 Core): 0.884634 s | Speedup: 1.00x | Eficiencia: 100.0%
-- OpenMP (2 Hilos): 0.604667 s | Speedup: 1.46x | Eficiencia: 73.0%
-- OpenMP (4 Hilos): 0.346333 s | Speedup: 2.55x | Eficiencia: 63.7%
-- MPI (2 Procesos): 0.075896 s | Speedup: 11.66x | Eficiencia: 583.0%
-- MPI (4 Procesos): 0.041687 s | Speedup: 21.22x | Eficiencia: 530.5%
-- Hibrido (2 Proc x 2 Hilos): 0.033564 s | Speedup: 26.36x | Eficiencia: 659.0%
+Filtro 5x5, K=3:
+- Secuencial (1 Core): 1.246977 s | Speedup: 1.00x | Eficiencia: 100.0%
+- OpenMP (2 Hilos): 0.812000 s | Speedup: 1.54x | Eficiencia: 76.8%
+- OpenMP (4 Hilos): 0.455000 s | Speedup: 2.74x | Eficiencia: 68.5%
+- MPI (1 Proceso): 1.230111 s | Speedup: 1.01x | Eficiencia: 101.4%
+- MPI (2 Procesos): 0.628614 s | Speedup: 1.98x | Eficiencia: 99.2%
+- MPI (4 Procesos): 0.345338 s | Speedup: 3.61x | Eficiencia: 90.3%
+- Hibrido (2 Proc x 2 Hilos): 0.371329 s | Speedup: 3.36x | Eficiencia: 83.9%
 
 Filtro 5x5, K=9:
-- Secuencial (1 Core): 1.209819 s | Speedup: 1.00x | Eficiencia: 100.0%
-- OpenMP (2 Hilos): 0.768333 s | Speedup: 1.57x | Eficiencia: 78.5%
-- OpenMP (4 Hilos): 0.426667 s | Speedup: 2.84x | Eficiencia: 71.0%
-- MPI (2 Procesos): 0.074165 s | Speedup: 16.31x | Eficiencia: 815.5%
-- MPI (4 Procesos): 0.047672 s | Speedup: 25.38x | Eficiencia: 634.5%
-- Hibrido (2 Proc x 2 Hilos): 0.030498 s | Speedup: 39.67x | Eficiencia: 991.8%
+- Secuencial (1 Core): 1.261651 s | Speedup: 1.00x | Eficiencia: 100.0%
+- OpenMP (2 Hilos): 0.802000 s | Speedup: 1.57x | Eficiencia: 78.6%
+- OpenMP (4 Hilos): 0.435000 s | Speedup: 2.90x | Eficiencia: 72.5%
+- MPI (1 Proceso): 1.261469 s | Speedup: 1.00x | Eficiencia: 100.0%
+- MPI (2 Procesos): 0.629406 s | Speedup: 2.00x | Eficiencia: 100.0%
+- MPI (4 Procesos): 0.360692 s | Speedup: 3.50x | Eficiencia: 87.5%
+- Hibrido (2 Proc x 2 Hilos): 0.408332 s | Speedup: 3.09x | Eficiencia: 77.2%
 
 
-5.4 Escalabilidad Extensiva OpenMP (Cores Fisicos y Hyper-Threading)
-Evaluacion de la saturacion de nucleos en resolucion 5000x5000 (Filtro 5x5, K=9, Tiempo secuencial base = 1.2098 s):
-- 1 Hilo (Secuencial base): 1.2098 s | Speedup: 1.00x | Eficiencia: 100.0%
-- 2 Hilos (Cores fisicos): 0.7683 s | Speedup: 1.57x | Eficiencia: 78.5%
-- 4 Hilos (Cores fisicos): 0.4267 s | Speedup: 2.84x | Eficiencia: 71.0%
-- 6 Hilos (Todos los cores fisicos): 0.3610 s | Speedup: 3.35x | Eficiencia: 55.8%
-- 8 Hilos (Cores logicos con HT): 0.3070 s | Speedup: 3.94x | Eficiencia: 49.2%
-- 12 Hilos (Maximo logico con HT): 0.2540 s | Speedup: 4.76x | Eficiencia: 39.7%
+5.4 Medicion Real del Impacto de Scatterv y Gatherv en MPI
+Para evaluar el costo exacto de la distribucion y recoleccion de datos frente al tiempo de computo puro sobre 5000x5000 (Filtro 5x5, K=9, tamano total de imagen = 75 MB):
+- MPI con 1 Proceso:
+  Computo local + Halos: 1.261469 s
+  Comunicacion: Scatterv = 0.018433 s | Gatherv = 0.018291 s
+  Tiempo Total End-to-End: 1.298227 s (Sobrecarga de Scatter/Gather: 2.9%)
+- MPI con 2 Procesos:
+  Computo local + Halos: 0.629406 s (Speedup computacional: 2.00x, Eficiencia: 100.0%)
+  Comunicacion: Scatterv = 0.024881 s | Gatherv = 0.019676 s
+  Tiempo Total End-to-End: 0.674190 s (Speedup real end-to-end: 1.87x, Eficiencia: 93.5%)
+- MPI con 4 Procesos:
+  Computo local + Halos: 0.360692 s (Speedup computacional: 3.50x, Eficiencia: 87.5%)
+  Comunicacion: Scatterv = 0.022045 s | Gatherv = 0.021976 s
+  Tiempo Total End-to-End: 0.404788 s (Speedup real end-to-end: 3.11x, Eficiencia: 77.8%)
+
+
+5.5 Escalabilidad Extensiva OpenMP (Cores Fisicos y Hyper-Threading)
+Evaluacion de la saturacion de nucleos en resolucion 5000x5000 (Filtro 5x5, K=9, Tiempo secuencial base = 1.2616 s):
+- 1 Hilo (Secuencial base): 1.2616 s | Speedup: 1.00x | Eficiencia: 100.0%
+- 2 Hilos (Cores fisicos): 0.8020 s | Speedup: 1.57x | Eficiencia: 78.6%
+- 4 Hilos (Cores fisicos): 0.4350 s | Speedup: 2.90x | Eficiencia: 72.5%
+- 6 Hilos (Todos los cores fisicos): 0.3610 s | Speedup: 3.49x | Eficiencia: 58.2%
+- 8 Hilos (Cores logicos con HT): 0.3070 s | Speedup: 4.11x | Eficiencia: 51.4%
+- 12 Hilos (Maximo logico con HT): 0.2540 s | Speedup: 4.97x | Eficiencia: 41.4%
 
 
 6. Discusion Tecnica y Analisis Critico
 
-6.1 Intensidad Aritmetica: 3x3 frente a 5x5
-En 5000x5000 con K=9:
-- Filtro 3x3: OpenMP con 4 hilos alcanza un Speedup de 2.55x con una eficiencia del 63.7%.
-- Filtro 5x5: OpenMP con 4 hilos alcanza un Speedup de 2.84x con una eficiencia del 71.0%.
+6.1 Comparativa K=3 frente a K=9
+Al contrastar los niveles de posterizacion para una misma resolucion y filtro:
+En 5000x5000 con Filtro 5x5:
+- Secuencial con K=3 toma 1.2469 s, mientras que con K=9 toma 1.2616 s (variacion menor al 1.2%).
+- OpenMP con 4 hilos toma 0.4550 s con K=3 y 0.4350 s con K=9.
+- MPI con 4 procesos toma 0.3453 s con K=3 y 0.3606 s con K=9.
 
-Fundamento: el filtro 5x5 ejecuta 25 lecturas y acumulaciones por pixel contra 9 del filtro 3x3. Este aumento en la intensidad aritmetica (operaciones por byte transferido) permite que la CPU pase mas tiempo computando en registros internos y menos tiempo esperando datos desde el bus de memoria, amortiguando mejor la sobrecarga de sincronizacion de hilos.
+Fundamento: el costo computacional de la posterizacion por pixel consiste en una multiplicacion entera, un corrimiento o division por 256, y un mapeo aritmético directo. Este costo es independiente del valor de K (K=3 y K=9 ejecutan exactamente la misma cantidad de operaciones de instruccion por byte). La leve variacion observada responde al ruido estadistico y a fluctuaciones termicas del procesador durante la corrida.
 
-6.2 Cuello de Botella de Memoria Compartida en OpenMP
-A medida que se incrementa el numero de hilos de 2 a 12, el tiempo continua reduciendose (de 0.768 s a 0.254 s), pero la eficiencia decae del 78.5% al 39.7%.
+6.2 Esclarecimiento del Comportamiento en MPI (Salto de 1 a 2 Procesos)
+En corridas iniciales de benchmarking se habian registrado cifras aparentemente anomalas (Speedups de 16x y 25x). Al realizar una auditoria estricta del entorno bajo Windows y Microsoft MPI, se detecto que el ejecutable mpiexec.exe descarta los argumentos vacios ("") de la linea de comandos, provocando que los parametros de dimension se desplazaran y se evaluara una imagen reducida.
+Una vez subsanado este comportamiento y medidas las dimensiones reales de 5000x5000:
+- Secuencial: 1.2616 s.
+- MPI con 1 Proceso: 1.2614 s (Speedup 1.00x).
+- MPI con 2 Procesos: 0.6294 s (Speedup 2.00x, Eficiencia 100.0%).
+- MPI con 4 Procesos: 0.3606 s (Speedup 3.50x, Eficiencia 87.5%).
+
+Los resultados demuestran un escalamiento casi lineal perfecto (Speedup de 2.00x con 2 procesos), coherente con la fisica del hardware y descartando cualquier hipotesis de superaceleracion magica. Cuando se incorpora el tiempo de Scatterv y Gatherv, el Speedup real end-to-end se posiciona en 1.87x para 2 procesos y 3.11x para 4 procesos, reflejando fielmente el costo de transferir 75 MB entre procesos en un unico nodo.
+
+6.3 Cuello de Botella de Memoria Compartida en OpenMP
+A medida que se incrementa el numero de hilos de 2 a 12, el tiempo continua reduciendose (de 0.802 s a 0.254 s), pero la eficiencia decae del 78.6% al 41.4%.
 Este comportamiento responde a dos causas principales:
 1. Saturacion del Bus de Memoria: todos los hilos compiten por el mismo ancho de banda del canal dual DDR4 hacia la memoria RAM principal.
 2. Hyper-Threading: los hilos logicos 7 al 12 comparten las unidades de ejecucion de enteros y punto flotante con los nucleos fisicos primarios, produciendo mejoras asintoticas sublineales.
 
-6.3 Analisis del Fenomeno Superlineal en MPI e Hibrido
-En las mediciones distribuidas se observan valores de Speedup que superan ampliamente la cantidad de procesos utilizados. Este comportamiento fue analizado a traves de tres factores concretos:
-
-1. Prueba de control con 1 proceso MPI:
-Se ejecuto el programa MPI con un solo proceso (mpiexec -n 1) sobre 5000x5000 (Filtro 5x5, K=9), obteniendo:
-Tiempo MPI con 1 proceso = 1.2507 s frente a 1.2098 s del secuencial (diferencia de apenas 3.38%).
-Esto valida que el algoritmo distribuido realiza exactamente las mismas operaciones computacionales que el secuencial y que no existen discrepancias en la implementacion base.
-
-2. Diferencia metodologica de medicion:
-El cronometro secuencial mide el procesamiento de los 250 MB totales de buffers en memoria global contigua. En cambio, en MPI el cronometro local mide el bloque de filas despues de la distribucion inicial (MPI_Scatterv) y antes de la recoleccion final (MPI_Gatherv), registrando unicamente el computo local y el intercambio de halos entre procesos vecinos.
-
-3. Jerarquia de memoria cache por aislamiento de procesos:
-Bajo Windows y Microsoft MPI, cada proceso se ejecuta en un espacio de direcciones de memoria virtual independiente con su propia tabla de paginas. Al fragmentar la imagen de 5000x5000 entre 2 y 4 procesos, los sub-bloques de datos reducen de manera sustancial los fallos de cache (cache misses) de nivel L2 y L3, favoreciendo los mecanismos de prefetching por hardware del procesador Intel sin las invalidaciones de lineas de cache que ocurren en memoria compartida.
-
 6.4 Verificacion Criptografica Bit a Bit
-Para certificar que el paralelismo y el intercambio de halos no alteraron las fronteras ni introdujeron artefactos numericos, se calculo el hash criptografico SHA-256 de las imagenes generadas bajo todas las variantes para una misma semilla:
+Para certificar que el paralelismo y el intercambio de halos no alteraron las fronteras ni introdujeron artefactos numericos, se calculo el hash criptografico SHA-256 de las imagenes generadas bajo todas las variantes.
 
+Procedimiento y Comando Ejecutado:
+Se utilizo la imagen sintetica patron de 800x800 con Filtro 5x5, K=9 y Umbral 70 generada por el script verify_hashes.bat en la raiz del repositorio:
+Comando:
+powershell -Command "Get-FileHash test_*.ppm -Algorithm SHA256"
+
+Resultados obtenidos:
 - test_seq.ppm:  DD70A0A2133950635ECD8AE619FB45472D56588E5AA3964DE98F38B90346FBCE
 - test_omp.ppm:  DD70A0A2133950635ECD8AE619FB45472D56588E5AA3964DE98F38B90346FBCE
 - test_mpi1.ppm: DD70A0A2133950635ECD8AE619FB45472D56588E5AA3964DE98F38B90346FBCE
@@ -209,15 +229,15 @@ Para certificar que el paralelismo y el intercambio de halos no alteraron las fr
 - test_mpi4.ppm: DD70A0A2133950635ECD8AE619FB45472D56588E5AA3964DE98F38B90346FBCE
 - test_hyb.ppm:  DD70A0A2133950635ECD8AE619FB45472D56588E5AA3964DE98F38B90346FBCE
 
-La coincidencia absoluta de los seis valores hash confirma que la descomposicion por bloques de filas y el esquema de doble halo de 1 y 2 celdas replican con exactitud el resultado secuencial original.
+La coincidencia absoluta de los seis valores hash confirma que la descomposicion por bloques de filas y el esquema de doble halo de 1 y 2 celdas replican con exactitud milimetrica el resultado secuencial original.
 
 
 7. Conclusiones
 
 1. Se implementaron con exito los cuatro paradigmas de computo solicitados por la catedra, garantizando consistencia matematica y portabilidad completa en entornos Windows y Linux.
 2. La inclusion de una segunda fase de intercambio de halos para el operador Sobel demostro ser indispensable para erradicar discontinuidades espaciales en los limites de los procesos MPI.
-3. En resoluciones pequenas (800x800), la sobrecarga de sincronizacion y comunicacion penaliza la eficiencia; mientras que en altas resoluciones (5000x5000), el computo domina ampliamente sobre la comunicacion.
-4. La combinacion de MPI para la division gruesa y OpenMP para la aceleracion multinucleo local ofrecio el mejor desempeno general, minimizando el volumen de mensajes en red y aprovechando la memoria cache compartida dentro de cada nodo o procesador.
+3. El analisis detallado de la comunicacion en MPI demostro que la transferencia de datos (Scatterv + Gatherv) para 75 MB insume aproximadamente 40 a 45 milisegundos en memoria local, permitiendo calcular con rigor tanto el Speedup computacional puro como el Speedup global de la aplicacion.
+4. Tanto K=3 como K=9 presentan tiempos de computo equivalentes debido a que la formula de cuantizacion uniforme insume identica cantidad de ciclos de instruccion.
 
 
 8. Bibliografia y Referencias

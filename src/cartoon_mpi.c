@@ -251,11 +251,16 @@ int main(int argc, char *argv[]) {
     PixelRGB *posterized_local = (PixelRGB*)malloc((size_t)local_pixels * sizeof(PixelRGB));
     PixelRGB *cartoon_local = (PixelRGB*)malloc((size_t)local_pixels * sizeof(PixelRGB));
 
+    MPI_Barrier(MPI_COMM_WORLD);
+    double t_total_start = MPI_Wtime();
+
+    double t_scat_start = MPI_Wtime();
     // Scatter original raw image partition into raw_local_inner
     MPI_Scatterv(rank == 0 ? full_img->data : NULL,
                  sendcounts_bytes, displs_bytes, MPI_BYTE,
                  raw_local_inner, local_pixels * sizeof(PixelRGB), MPI_BYTE,
                  0, MPI_COMM_WORLD);
+    double t_scat_end = MPI_Wtime();
 
     MPI_Barrier(MPI_COMM_WORLD);
     double t_start = MPI_Wtime();
@@ -293,16 +298,24 @@ int main(int argc, char *argv[]) {
         final_img = ppm_create(width, height);
     }
 
+    double t_gath_start = MPI_Wtime();
     MPI_Gatherv(cartoon_local, local_pixels * sizeof(PixelRGB), MPI_BYTE,
                 rank == 0 ? final_img->data : NULL,
                 sendcounts_bytes, displs_bytes, MPI_BYTE,
                 0, MPI_COMM_WORLD);
+    double t_gath_end = MPI_Wtime();
+
+    MPI_Barrier(MPI_COMM_WORLD);
+    double t_total_end = MPI_Wtime();
+    double total_mpi_elapsed = t_total_end - t_total_start;
 
     if (rank == 0) {
         printf("[MPI] Tiempo total de computo (max): %.6f segundos (%.2f MPixels/s)\n",
                max_elapsed, ((double)(width * height) / 1e6) / max_elapsed);
+        printf("[MPI] Desglose comunicacion: Scatterv=%.6fs | Gatherv=%.6fs | Total con Scatter/Gather=%.6fs\n",
+               t_scat_end - t_scat_start, t_gath_end - t_gath_start, total_mpi_elapsed);
 
-        if (output_path && strlen(output_path) > 0) {
+        if (output_path && strlen(output_path) > 0 && strcmp(output_path, "none") != 0) {
             ppm_write(output_path, final_img);
             printf("[MPI] Resultado guardado exitosamente en: %s\n", output_path);
         }

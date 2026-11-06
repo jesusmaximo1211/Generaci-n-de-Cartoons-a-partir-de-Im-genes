@@ -314,7 +314,7 @@ int main(int argc, char *argv[]) {
         printf("[HYBRID] Tiempo total de computo (max): %.6f segundos (%.2f MPixels/s)\n",
                max_elapsed, ((double)(width * height) / 1e6) / max_elapsed);
 
-        if (output_path && strlen(output_path) > 0) {
+        if (output_path && strlen(output_path) > 0 && strcmp(output_path, "none") != 0) {
             ppm_write(output_path, final_img);
             printf("[HYBRID] Resultado guardado exitosamente en: %s\n", output_path);
         }
