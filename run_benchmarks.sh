@@ -70,8 +70,8 @@ EOF
 SIZES=("800" "2000" "5000")
 FILTERS=("3" "5")
 K_VALS=("3" "9")
-OMP_THREADS_LIST=("2" "4")
-MPI_PROCS_LIST=("2" "4")
+OMP_THREADS_LIST=("2" "4" "8" "12")
+MPI_PROCS_LIST=("2" "4" "8" "12")
 
 for DIM in "${SIZES[@]}"; do
     echo ">> Procesando tamaño de imagen: ${DIM}x${DIM}..."
